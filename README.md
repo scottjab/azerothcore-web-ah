@@ -142,6 +142,51 @@ docker build -t wow-ah-viewer .
 docker run -p 8080:8080 --env-file .env wow-ah-viewer
 ```
 
+## Nix/NixOS Support
+
+This project includes a comprehensive Nix flake for easy deployment and development on NixOS and other Nix-based systems.
+
+### Quick Start with Nix
+
+```bash
+# Build the package
+nix build
+
+# Run the application
+nix run
+
+# Enter development environment
+nix develop
+```
+
+### NixOS Deployment
+
+For NixOS users, add this to your `configuration.nix`:
+
+```nix
+services.azerothcore-web-ah = {
+  enable = true;
+  port = 8080;
+  database = {
+    host = "localhost";
+    user = "root";
+    password = "your_password";
+    name = "acore_characters";
+  };
+  openFirewall = true;
+};
+```
+
+### Features
+
+- **Complete Systemd Integration**: Production-ready service with security hardening
+- **Declarative Configuration**: All options configurable through NixOS
+- **Development Environment**: Pre-configured development shell with all tools
+- **Multi-platform Support**: Works on Linux, macOS, and other platforms
+- **Security Hardening**: User isolation, resource limits, and system protection
+
+For detailed documentation, configuration options, and advanced usage, see [README-NIX.md](README-NIX.md).
+
 ## Troubleshooting
 
 ### Database Connection Issues
