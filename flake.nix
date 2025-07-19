@@ -17,7 +17,7 @@
             pname = "azerothcore-web-ah";
             version = "1.0.0";
             src = ./.;
-            vendorHash = null; # Will be set after first build
+            vendorHash = "sha256-kA5ITxwaDC3wTlfKpJYXHq5L3mnv+sYAOihBqQBVAXI=";
             doCheck = false;
             meta = with pkgs.lib; {
               description = "Web-based auction house viewer for AzerothCore servers";
